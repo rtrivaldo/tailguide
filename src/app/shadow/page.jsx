@@ -1,6 +1,7 @@
 "use client";
 
 import SliderInput from "@/components/slider-input";
+import { Switch } from "@/components/ui/switch";
 import { useRef, useState } from "react";
 
 import { FaRegClipboard } from "react-icons/fa6";
@@ -49,6 +50,8 @@ export default function Shadow() {
 
     const [isTailwindCopied, setIsTailwindCopied] = useState(false);
     const [isCssCopied, setIsCssCopied] = useState(false);
+
+    const [isInset, setIsInset] = useState(false);
 
     const handleSlider = (value, property) => {
         if (property === "x") {
@@ -108,14 +111,18 @@ export default function Shadow() {
         });
     };
 
+    const handleSwitch = () => {
+        setIsInset(!isInset);
+    };
+
     return (
         <main className="flex flex-col md:flex-row gap-10 h-screen pt-24 pb-10">
             <div className="md:-1/2 lg:w-2/3 flex flex-col justify-between gap-10">
-                <div className="h-full lg:h-2/3 flex justify-center items-center bg-slate-100 dark:bg-slate-800 shadow-md p-6 rounded-lg">
+                <div className="h-full min-h-[20em] lg:h-2/3 flex justify-center items-center bg-slate-100 dark:bg-slate-800 shadow-md p-6 rounded-lg">
                     <div
                         className="max-w-xl bg-slate-50 dark:bg-slate-950 dark:text-slate-100 p-6 rounded-lg"
                         style={{
-                            boxShadow: `${xValue}px ${yValue}px ${blurValue}px ${spreadValue}px ${getColorDisplay()}`,
+                            boxShadow: `${xValue}px ${yValue}px ${blurValue}px ${spreadValue}px ${getColorDisplay()} ${isInset ? "inset" : ""}`,
                         }}
                     >
                         <p className="text-sm lg:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio consequuntur, nihil voluptatibus deleniti accusamus cum quam explicabo tenetur commodi quo!</p>
@@ -126,7 +133,7 @@ export default function Shadow() {
                     <div className="">
                         <h2 className="lg:text-lg font-semibold">TailwindCSS</h2>
                         <div className="mt-2 flex items-center justify-between bg-slate-50 dark:bg-slate-950 p-4 rounded-lg shadow-md">
-                            <input type="text" readOnly value={`shadow-[${xValue}px_${yValue}px_${blurValue}px_${spreadValue}px_${getColorDisplay()}]`} className="w-full bg-transparent focus:outline-none" ref={tailwindCode} />
+                            <input type="text" readOnly value={`shadow-[${isInset ? "inset_" : ""}${xValue}px_${yValue}px_${blurValue}px_${spreadValue}px_${getColorDisplay()}]`} className="w-full bg-transparent focus:outline-none" ref={tailwindCode} />
 
                             <div className="cursor-pointer" onClick={() => handleCopyToClipboard("tailwind")}>
                                 <FaRegClipboard className={`${isTailwindCopied ? "hidden" : ""}`} />
@@ -138,7 +145,7 @@ export default function Shadow() {
                     <div className="mt-4">
                         <h2 className="lg:text-lg font-semibold">CSS</h2>
                         <div className="mt-2 flex items-center justify-between bg-slate-50 dark:bg-slate-950 p-4 rounded-lg shadow-md">
-                            <input type="text" readOnly value={`box-shadow: ${xValue}px ${yValue}px ${blurValue}px ${spreadValue}px ${getColorDisplay()};`} className="w-full bg-transparent focus:outline-none" ref={cssCode} />
+                            <input type="text" readOnly value={`box-shadow: ${xValue}px ${yValue}px ${blurValue}px ${spreadValue}px ${getColorDisplay()}${isInset ? " inset" : ""};`} className="w-full bg-transparent focus:outline-none" ref={cssCode} />
 
                             <div className="cursor-pointer" onClick={() => handleCopyToClipboard("css")}>
                                 <FaRegClipboard className={`${isCssCopied ? "hidden" : ""}`} />
@@ -168,6 +175,12 @@ export default function Shadow() {
                             <input type="text" className="bg-transparent border rounded p-2 w-full text-sm lg:text-base" value={colorValue} onChange={handleColorChange} placeholder="Enter color (Hex or RGB)" />
                             <input type="color" value={colorValue} onChange={handleColorChange} />
                         </div>
+                    </div>
+
+                    <div className="mt-4 flex justify-between items-center">
+                        <h2 className="text-sm lg:text-base">Inset</h2>
+
+                        <Switch onClick={handleSwitch} />
                     </div>
                 </div>
             </div>
