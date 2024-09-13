@@ -13,7 +13,7 @@ export default function Navbar() {
     const { setTheme } = useTheme();
 
     return (
-        <div className="fixed inset-x-0 flex justify-between items-center xl:container mx-auto px-4 md:px-6 py-6 bg-slate-50 dark:bg-slate-950">
+        <div className="fixed inset-x-0 flex justify-between items-center xl:container mx-auto px-4 md:px-6 py-6 bg-slate-50 dark:bg-zinc-900">
             <div className="flex items-center gap-10">
                 {/* logo */}
                 <Link href={"/"} className="text-xl font-semibold">
@@ -21,15 +21,9 @@ export default function Navbar() {
                 </Link>
 
                 {/* nav links */}
-                <div className="hidden md:flex items-center gap-6 text-slate-500">
-                    <Link href="/" className={`hover:text-slate-950 dark:hover:text-slate-100 transition-colors ${pathname === "/" ? "text-slate-950 dark:text-slate-100" : ""}`}>
-                        Palletes
-                    </Link>
-                    <Link href="/gradient" className={`hover:text-slate-950 dark:hover:text-slate-100 transition-colors ${pathname === "/gradient" ? "text-slate-950 dark:text-slate-100" : ""}`}>
-                        Gradients
-                    </Link>
-                    <Link href="/grid" className={`hover:text-slate-950 dark:hover:text-slate-100 transition-colors ${pathname === "/grid" ? "text-slate-950 dark:text-slate-100" : ""}`}>
-                        Grids
+                <div className="hidden md:flex items-center gap-6 text-zinc-500">
+                    <Link href="/border-radius" className={`hover:text-slate-950 dark:hover:text-slate-100 transition-colors ${pathname === "/border-radius" ? "text-slate-950 dark:text-slate-100" : ""}`}>
+                        Border Radius
                     </Link>
                     <Link href="/shadow" className={`hover:text-slate-950 dark:hover:text-slate-100 transition-colors ${pathname === "/shadow" ? "text-slate-950 dark:text-slate-100" : ""}`}>
                         Shadows
@@ -39,7 +33,7 @@ export default function Navbar() {
 
             <div className="flex items-center text-xl">
                 {/* github repo */}
-                <Link href={""} className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md transition-all duration-300 ease-out">
+                <Link href={"https://github.com/rtrivaldo/tailwind-generator"} className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md transition-all duration-300 ease-out">
                     <FaGithub />
                 </Link>
 
