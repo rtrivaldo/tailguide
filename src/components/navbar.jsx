@@ -22,6 +22,9 @@ export default function Navbar() {
 
                 {/* nav links */}
                 <div className="hidden md:flex items-center gap-6 text-zinc-500">
+                    <Link href="/transform" className={`hover:text-slate-950 dark:hover:text-slate-100 transition-colors ${pathname === "/transform" ? "text-slate-950 dark:text-slate-100" : ""}`}>
+                        Transform
+                    </Link>
                     <Link href="/border-radius" className={`hover:text-slate-950 dark:hover:text-slate-100 transition-colors ${pathname === "/border-radius" ? "text-slate-950 dark:text-slate-100" : ""}`}>
                         Border Radius
                     </Link>

@@ -44,7 +44,7 @@ export default function Shadow() {
     const [yValue, setYValue] = useState(20);
     const [blurValue, setBlurValue] = useState(20);
     const [spreadValue, setSpreadValue] = useState(5);
-    const [opacityValue, setOpacityValue] = useState(1); // Opacity as a fraction (0 to 1)
+    const [opacityValue, setOpacityValue] = useState(0.5);
 
     const [colorValue, setColorValue] = useState("#000000");
 
@@ -166,7 +166,7 @@ export default function Shadow() {
                     <SliderInput state={blurValue} handler={(value) => handleSlider(value, "blur")} title={"Blur Radius"} defaultValue={20} value={blurValue} max={200} min={0} className="mt-2" />
                     <SliderInput state={spreadValue} handler={(value) => handleSlider(value, "spread")} title={"Spread Radius"} defaultValue={5} value={spreadValue} max={150} min={-100} className="mt-2" />
 
-                    <SliderInput state={opacityValue} handler={(value) => handleSlider(value, "opacity")} title={"Shadow Opacity"} defaultValue={100} value={opacityValue} max={1} min={0} step={0.01} unit="" className="mt-2" />
+                    <SliderInput state={opacityValue} handler={(value) => handleSlider(value, "opacity")} title={"Shadow Opacity"} defaultValue={0.5} value={opacityValue} max={1} min={0} step={0.01} unit="" className="mt-2" />
 
                     <div className="mt-2">
                         <h2 className="text-sm lg:text-base">Shadow Color</h2>
