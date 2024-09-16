@@ -73,8 +73,18 @@ export default function BorderRadius() {
         }
     };
 
+    const optimizedCss = (topLeftValue, topRightValue, bottomRightValue, bottomLeftValue) => {
+        if (topLeftValue == topRightValue && topRightValue == bottomRightValue && bottomRightValue == bottomLeftValue) {
+            return topLeftValue + "px";
+        } else if (topLeftValue == bottomRightValue && topRightValue == bottomLeftValue) {
+            return topLeftValue + "px" + " " + topRightValue + "px";
+        } else {
+            return topLeftValue + "px" + " " + topRightValue + "px" + " " + bottomRightValue + "px" + " " + bottomLeftValue + "px";
+        }
+    };
+
     return (
-        <main className="flex flex-col md:flex-row gap-10 md:h-screen pt-24 pb-10">
+        <main className="flex flex-col md:flex-row gap-10 md:h-screen pt-24 pb-10 transition-colors duration-300 ease-out">
             <div className="md:w-1/2 lg:w-2/3 flex flex-col justify-between gap-10">
                 <div className="h-full min-h-[20em] lg:h-2/3 flex justify-center items-center bg-slate-100 dark:bg-zinc-800 shadow-md p-6 rounded-lg">
                     <div
@@ -101,7 +111,7 @@ export default function BorderRadius() {
                     <div className="mt-4">
                         <h2 className="lg:text-lg font-semibold">CSS</h2>
                         <div className="mt-2 flex items-center justify-between gap-6 bg-slate-50 dark:bg-zinc-900 p-4 rounded-lg shadow-md">
-                            <input type="text" readOnly value={`${topLeftValue > 0 || topRightValue > 0 || bottomRightValue > 0 || bottomLeftValue > 0 ? `border-radius: ${topLeftValue}px ${topRightValue}px ${bottomRightValue}px ${bottomLeftValue}px;` : "No border radius applied"}`} className="w-full bg-transparent focus:outline-none" ref={cssCode} />
+                            <input type="text" readOnly /* value={`${topLeftValue > 0 || topRightValue > 0 || bottomRightValue > 0 || bottomLeftValue > 0 ? `border-radius: ${topLeftValue}px ${topRightValue}px ${bottomRightValue}px ${bottomLeftValue}px;` : "No border radius applied"}`} */ value={`border-radius: ${optimizedCss(topLeftValue, topRightValue, bottomRightValue, bottomLeftValue)};`} className="w-full bg-transparent focus:outline-none" ref={cssCode} />
 
                             <div className="cursor-pointer" onClick={() => handleCopyToClipboard("css")}>
                                 <FaRegClipboard className={`${isCssCopied ? "hidden" : ""}`} />

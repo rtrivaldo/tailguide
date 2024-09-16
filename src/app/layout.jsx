@@ -21,9 +21,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" suppressHydrationWarning>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 dark:bg-zinc-900`}>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <html lang="en" suppressHydrationWarning className="">
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 dark:bg-zinc-900 transition-colors duration-300 ease-out`}>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <Navbar />
                     <div className="xl:container mx-auto px-4 md:px-6">{children}</div>
                 </ThemeProvider>
