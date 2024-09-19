@@ -70,7 +70,7 @@ export default function Navbar() {
 
                 <div className="flex items-center text-xl">
                     {/* github repo */}
-                    <Link href={"https://github.com/rtrivaldo/tailwind-generator"} className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md transition-all duration-300 ease-out">
+                    <Link href={"https://github.com/rtrivaldo/tailguide"} className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md transition-all duration-300 ease-out">
                         <FaGithub />
                     </Link>
 
