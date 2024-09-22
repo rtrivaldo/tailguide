@@ -150,7 +150,7 @@ export default function BorderRadius() {
               <input
                 type='text'
                 readOnly
-                /* value={`${topLeftValue > 0 || topRightValue > 0 || bottomRightValue > 0 || bottomLeftValue > 0 ? `rounded-[${topLeftValue}px_${topRightValue}px_${bottomRightValue}px_${bottomLeftValue}px]` : "No border radius applied"}`} */ value={`rounded-[${optimizedTailwind(
+                value={`rounded-[${optimizedTailwind(
                   topLeftValue,
                   topRightValue,
                   bottomRightValue,
@@ -178,7 +178,7 @@ export default function BorderRadius() {
               <input
                 type='text'
                 readOnly
-                /* value={`${topLeftValue > 0 || topRightValue > 0 || bottomRightValue > 0 || bottomLeftValue > 0 ? `border-radius: ${topLeftValue}px ${topRightValue}px ${bottomRightValue}px ${bottomLeftValue}px;` : "No border radius applied"}`} */ value={`border-radius: ${optimizedCss(
+                value={`border-radius: ${optimizedCss(
                   topLeftValue,
                   topRightValue,
                   bottomRightValue,
