@@ -24,11 +24,11 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`absolute inset-y-0 w-full px-4 md:px-6 py-8 bg-slate-50 dark:bg-zinc-900 md:hidden z-20 transition-all duration-300 ease-out ${
+        className={`fixed inset-y-0 w-full px-4 md:px-6 py-8 bg-slate-50 dark:bg-zinc-900 md:hidden z-50 transition-all duration-300 ease-out ${
           isOpen ? 'left-0' : '-left-[100%]'
         }`}
       >
-        <div className='flex justify-end' onClick={handleToggle}>
+        <div className='flex justify-end mr-2' onClick={handleToggle}>
           <ImCross />
         </div>
 
@@ -78,7 +78,8 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-      <div className='fixed inset-x-0 flex justify-between items-center xl:container mx-auto px-4 md:px-6 py-6 bg-slate-50 dark:bg-zinc-900 transition-colors duration-300 ease-out'>
+
+      <div className='fixed inset-x-0 flex justify-between items-center xl:container mx-auto px-4 md:px-6 py-4 md:py-6 bg-slate-50 dark:bg-zinc-900 transition-colors duration-300 ease-out'>
         <div className='flex items-center gap-10'>
           {/* logo */}
           <Link href={'/'} className='text-xl font-semibold hidden md:block'>

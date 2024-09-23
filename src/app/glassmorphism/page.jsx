@@ -106,9 +106,9 @@ export default function Glassmorphism() {
   };
 
   return (
-    <main className='flex flex-col md:flex-row gap-10 md:h-screen pt-24 pb-10 transition-colors duration-300 ease-out'>
+    <main className='flex flex-col md:flex-row gap-10 md:h-screen pt-20 pb-10 transition-colors duration-300 ease-out'>
       <div className='md:w-1/2 lg:w-2/3 flex flex-col justify-between gap-10'>
-        <div className='h-full min-h-[20em] lg:h-2/3 flex justify-center items-center bg-[url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100")] bg-cover shadow-md p-6 rounded-lg'>
+        <div className='h-full min-h-[20em] lg:h-2/3 flex justify-center items-center bg-[url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100")] bg-cover shadow-md p-6 rounded-lg -z-10'>
           <div
             className='aspect-video w-2/3 lg:w-3/5 rounded-xl'
             style={{
