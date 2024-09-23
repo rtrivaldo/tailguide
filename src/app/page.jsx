@@ -62,7 +62,7 @@ export default function Transform() {
   return (
     <main className='flex flex-col md:flex-row gap-10 md:h-screen pt-20 pb-10 transition-colors duration-300 ease-out'>
       <div className='md:w-1/2 lg:w-2/3 flex flex-col justify-between gap-10'>
-        <div className='h-full min-h-[20em] lg:h-2/3 flex justify-center items-center bg-slate-100 dark:bg-zinc-800 shadow-md p-6 rounded-lg -z-10'>
+        <div className='h-full min-h-[20em] lg:h-2/3 flex justify-center items-center bg-slate-100 dark:bg-zinc-800 shadow-md p-6 rounded-lg -z-10 lg:z-0'>
           <div
             className='aspect-square w-1/2 lg:w-1/3 bg-zinc-900 dark:bg-slate-50'
             style={{
